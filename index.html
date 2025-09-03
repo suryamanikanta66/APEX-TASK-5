@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShopLite • E-Commerce Frontend</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:," />
+</head>
+<body>
+  <!-- Header / Navbar -->
+   <!-- index.html (Navbar Section) -->
+<header>
+  <nav class="navbar">
+    <div class="nav-logo">ShopLite</div>
+
+    <!-- Navigation Links -->
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Categories</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+
+    <!-- Search Bar -->
+    <div class="nav-search">
+      <input type="text" placeholder="Search products..." id="searchInput" />
+      <button>🔍</button>
+    </div>
+
+    <!-- Cart Icon -->
+    <div class="nav-cart">
+      🛒 <span id="cart-count">0</span>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div class="nav-toggle" id="nav-toggle">☰</div>
+  </nav>
+</header>
+
+  <header class="header">
+    <a class="logo" href="#">Shop<span>Lite</span></a>
+
+    <form id="searchForm" class="search" role="search" aria-label="Product search">
+      <input id="searchInput" type="search" placeholder="Search products…" aria-label="Search products" />
+      <button type="submit" aria-label="Search">🔎</button>
+    </form>
+
+    <div class="nav-actions">
+      <button id="openFilters" class="btn ghost only-mobile" aria-expanded="false" aria-controls="filters">Filters</button>
+      <button id="openCart" class="cart-btn" aria-label="Open cart" aria-haspopup="dialog">
+        🛒 <span id="cartCount" class="pill">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="container">
+    <!-- Sidebar Filters -->
+    <aside id="filters" class="filters" aria-label="Filters">
+      <div class="filters__header">
+        <h2>Filters</h2>
+        <button id="closeFilters" class="btn ghost only-mobile" aria-label="Close filters">✕</button>
+      </div>
+
+      <div class="filter-block">
+        <h3>Category</h3>
+        <label><input type="checkbox" name="cat" value="electronics" checked /> Electronics</label>
+        <label><input type="checkbox" name="cat" value="fashion" checked /> Fashion</label>
+        <label><input type="checkbox" name="cat" value="home" checked /> Home</label>
+        <label><input type="checkbox" name="cat" value="books" checked /> Books</label>
+      </div>
+
+      <div class="filter-block">
+        <h3>Price (max)</h3>
+        <div class="range">
+          <input id="priceMax" type="range" min="10" max="2000" value="2000" />
+          <output id="priceMaxOut">₹2000</output>
+        </div>
+      </div>
+
+      <div class="filter-block">
+        <h3>Rating</h3>
+        <select id="minRating">
+          <option value="0">Any</option>
+          <option value="3">3★ & up</option>
+          <option value="4">4★ & up</option>
+          <option value="4.5">4.5★ & up</option>
+        </select>
+      </div>
+
+      <button id="clearFilters" class="btn ghost">Clear filters</button>
+    </aside>
+
+    <!-- Content area -->
+    <section class="content">
+      <div class="toolbar">
+        <div class="results" id="resultCount">Showing 0 items</div>
+        <div class="sort">
+          <label for="sortBy">Sort:</label>
+          <select id="sortBy">
+            <option value="relevance">Relevance</option>
+            <option value="price-asc">Price ↑</option>
+            <option value="price-desc">Price ↓</option>
+            <option value="rating-desc">Rating</option>
+            <option value="name-asc">Name A–Z</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Product grid -->
+      <div id="grid" class="grid" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <!-- Cart Drawer -->
+  <aside id="cartDrawer" class="drawer" role="dialog" aria-modal="true" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer__head">
+      <h2>Your Cart</h2>
+      <button id="closeCart" class="btn ghost" aria-label="Close cart">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="drawer__foot">
+      <div class="row">
+        <span>Subtotal</span><strong id="cartSubtotal">₹0</strong>
+      </div>
+      <button id="checkout" class="btn primary">Checkout</button>
+      <button id="clearCart" class="btn ghost">Clear cart</button>
+    </div>
+  </aside>
+
+  <!-- Backdrop for drawers on mobile -->
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <footer class="footer">© 2025 ShopLite • Built with HTML, CSS & JS</footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
